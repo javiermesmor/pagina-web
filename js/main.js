@@ -287,7 +287,7 @@ function typeWriter() {
     isTyping = true;
 
     const texts = [
-        "Desarrollador de 21 años especializado en soluciones multiplataforma, con experiencia en diseño de APIs, arquitectura de sistemas y gestión de bases de datos.",
+        "Desarrollador de 22 años especializado en soluciones multiplataforma, con experiencia en diseño de APIs, arquitectura de sistemas y gestión de bases de datos.",
         "Actualmente cursando ASIR y enfocado en crear soluciones tecnológicas eficientes, escalables e innovadoras.",
         "Perfil analítico, proactivo y orientado a resultados, con mentalidad de mejora continua y aprendizaje constante."
     ];
