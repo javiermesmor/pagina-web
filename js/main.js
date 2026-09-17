@@ -85,7 +85,7 @@ function setupThemeToggle() {
 }
 
 /**
- * Configura el formulario de contacto para enviar correos usando EmailJS.
+ * Configura el formulario de contacto para enviar correos usando tu API en Vercel.
  */
 function setupContactForm() {
     const form = document.getElementById('contact-form');
@@ -94,7 +94,7 @@ function setupContactForm() {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // 1. Validación de campos
+        // 1. Validación de campos (Se mantiene igual)
         const name = document.getElementById('contact-name').value.trim();
         const email = document.getElementById('contact-email').value.trim();
         const subject = document.getElementById('contact-subject').value.trim();
@@ -112,11 +112,11 @@ function setupContactForm() {
         const submitBtn = document.getElementById('submit-btn');
         const originalText = submitBtn.innerHTML;
 
-        // 2. Mostrar estado de envío
+        // 2. Mostrar estado de envío (Se mantiene igual)
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
         submitBtn.disabled = true;
 
-        // 3. Preparar datos para EmailJS
+        // 3. Preparar datos (Mantenemos los nombres que usabas para que no se rompa tu plantilla de EmailJS)
         const templateParams = {
             subject: subject,
             from_name: name,
@@ -126,14 +126,15 @@ function setupContactForm() {
         };
 
         try {
-            // 4. Enviar el correo usando EmailJS
-            const response = await emailjs.send(
-                'service_cghct3q',  // TU Service ID
-                'template_0umevdp', // TU Template ID
-                templateParams
-            );
+            // 4. Enviar el correo usando NUESTRA API DE VERCEL (Aquí está el cambio)
+            const response = await fetch('/api/enviar-correo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(templateParams)
+            });
 
-            if (response.status === 200) {
+            // Si la respuesta es exitosa (código 200)
+            if (response.ok) {
                 showNotification('¡Mensaje enviado correctamente!', 'success');
                 form.reset();
                 closeContactModal();
@@ -145,7 +146,7 @@ function setupContactForm() {
             console.error('Error al enviar el mensaje:', error);
             showNotification('Error al enviar el mensaje. Inténtalo de nuevo.', 'error');
         } finally {
-            // 5. Restaurar el botón
+            // 5. Restaurar el botón (Se mantiene igual)
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }
