@@ -3,17 +3,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  // 1. Verificación: Comprobamos si Vercel está leyendo las variables de entorno
-  console.log("Estado de Variables:");
-  console.log("- Service ID:", process.env.EMAILJS_SERVICE_ID ? "Cargado" : "Falta");
-  console.log("- Template ID:", process.env.EMAILJS_TEMPLATE_ID ? "Cargado" : "Falta");
-  console.log("- Public Key:", process.env.EMAILJS_PUBLIC_KEY ? "Cargado" : "Falta");
+  // Protección adicional: asegura que los datos sean un objeto JSON válido
+  const parametros = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
 
   const data = {
     service_id: process.env.EMAILJS_SERVICE_ID,
     template_id: process.env.EMAILJS_TEMPLATE_ID,
     user_id: process.env.EMAILJS_PUBLIC_KEY,
-    template_params: req.body
+    accessToken: process.env.EMAILJS_PRIVATE_KEY, // Autenticación estricta de backend
+    template_params: parametros
   };
 
   try {
@@ -26,13 +24,12 @@ export default async function handler(req, res) {
     if (response.ok) {
       res.status(200).json({ mensaje: 'Correo enviado con éxito' });
     } else {
-      // 2. Capturamos la respuesta exacta de EmailJS si falla
       const errorText = await response.text();
-      console.error("Error devuelto por EmailJS:", errorText);
-      res.status(500).json({ error: 'Fallo al enviar en EmailJS' });
+      console.error("EmailJS rechazó el envío:", errorText);
+      res.status(500).json({ error: 'Fallo al enviar', detalles: errorText });
     }
   } catch (error) {
-    console.error("Error interno del servidor:", error);
+    console.error("Error interno:", error);
     res.status(500).json({ error: 'Error del servidor' });
   }
 }
