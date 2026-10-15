@@ -35,14 +35,6 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 ### 📱 Redes sociales y presencia personal
 - [ ] Mostrar estadísticas sociales (seguidores, vídeos, estrellas de GitHub) con APIs.
 
-### 🧠 Funcionalidades técnicas útiles
-- [ ] Botón flotante para volver al inicio de la página (scroll to top).
-- [ ] Sección de blog/artículos (tutoriales, experiencias, proyectos).
-
-### 🌍 Internacionalización y accesibilidad
-- [ ] Opción para cambiar idioma (ES/EN).
-- [ ] Revisión de accesibilidad (contraste, navegación por teclado, alt-text).
-
 ### 🎨 Extras creativos
 - [ ] Sección con “Mis herramientas favoritas” usando iconos animados.
 - [ ] Mostrar una **cita motivadora aleatoria** al cargar la página.
