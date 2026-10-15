@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Javier Mesonero Moro - Desarrollador Multiplataforma</title>
+    <title data-i18n="pageTitle">Javier Mesonero Moro - Desarrollador Multiplataforma</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -16,6 +16,7 @@
 </head>
 
 <body class="min-h-screen relative overflow-x-hidden">
+    <a class="skip-link" href="#main-content" data-i18n="skipToContent">Saltar al contenido</a>
 
     <div class="gradient-bg"></div>
     <div class="floating-shapes">
@@ -25,36 +26,61 @@
     </div>
 
 
-    <nav id="navbar" class="fixed top-0 w-full z-50 navbar">
+    <nav id="navbar" class="fixed top-0 w-full z-50 navbar" aria-label="Navegación principal" data-i18n-aria-label="mainNavigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <div class="text-white font-bold text-xl">
-                        <i class="gradient-text fas fa-code"></i>
+                        <i class="gradient-text fas fa-code" aria-hidden="true"></i>
                         <span class="gradient-text">JMM</span>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#inicio"
-                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Inicio</a>
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors" data-i18n="navHome">Inicio</a>
                         <a href="#sobre-mi"
-                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Sobre
-                            mí</a>
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors" data-i18n="navAbout">Sobre mí</a>
+                        <a href="#herramientas"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors" data-i18n="navTools">Herramientas</a>
                         <a href="#proyectos"
-                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Proyectos</a>
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors" data-i18n="navProjects">Proyectos</a>
                         <a href="#contacto"
-                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Contacto</a>
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors" data-i18n="navContact">Contacto</a>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="theme-toggle hidden md:flex" id="theme-toggle">
-                        <i class="fas fa-moon theme-icon moon"></i>
-                        <i class="fas fa-sun theme-icon sun"></i>
+                    <div class="language-control">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <button id="language-menu-button" class="language-select" type="button" aria-label="Seleccionar idioma" data-i18n-aria-label="languageLabel" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+                            <span id="current-language">Español</span>
+                        </button>
+                        <i class="fas fa-chevron-down language-chevron" aria-hidden="true"></i>
+                        <div id="language-menu" class="language-menu" role="menu" aria-label="Idiomas disponibles" data-i18n-aria-label="availableLanguages" hidden>
+                            <button type="button" class="language-option" role="menuitemradio" data-locale="es" aria-checked="true">
+                                <span class="language-code">ES</span><span class="language-name">Español</span><i class="fas fa-check language-check" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="language-option" role="menuitemradio" data-locale="en" aria-checked="false">
+                                <span class="language-code">EN</span><span class="language-name">English</span><i class="fas fa-check language-check" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="language-option" role="menuitemradio" data-locale="fr" aria-checked="false">
+                                <span class="language-code">FR</span><span class="language-name">Français</span><i class="fas fa-check language-check" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="language-option" role="menuitemradio" data-locale="ja" aria-checked="false">
+                                <span class="language-code">JA</span><span class="language-name">日本語</span><i class="fas fa-check language-check" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="language-option" role="menuitemradio" data-locale="zh-CN" aria-checked="false">
+                                <span class="language-code">中文</span><span class="language-name">简体中文</span><i class="fas fa-check language-check" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
+                    <button type="button" class="theme-toggle hidden md:flex" id="theme-toggle" aria-label="Cambiar tema" data-i18n-aria-label="toggleTheme">
+                        <i class="fas fa-moon theme-icon moon" aria-hidden="true"></i>
+                        <i class="fas fa-sun theme-icon sun" aria-hidden="true"></i>
+                    </button>
                     <div class="md:hidden">
-                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
-                            <i class="fas fa-bars text-lg"></i>
+                        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú" data-i18n-aria-label="openMenu">
+                            <i class="fas fa-bars text-lg" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -62,18 +88,20 @@
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <a href="#inicio"
-                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Inicio</a>
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" data-i18n="navHome">Inicio</a>
                     <a href="#sobre-mi"
-                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Sobre mí</a>
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" data-i18n="navAbout">Sobre mí</a>
+                    <a href="#herramientas"
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" data-i18n="navTools">Herramientas</a>
                     <a href="#proyectos"
-                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Proyectos</a>
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" data-i18n="navProjects">Proyectos</a>
                     <a href="#contacto"
-                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Contacto</a>
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium" data-i18n="navContact">Contacto</a>
                     <div class="px-3 py-2">
-                        <div class="theme-toggle" id="theme-toggle-mobile">
-                            <i class="fas fa-moon theme-icon moon"></i>
-                            <i class="fas fa-sun theme-icon sun"></i>
-                        </div>
+                        <button type="button" class="theme-toggle" id="theme-toggle-mobile" aria-label="Cambiar tema" data-i18n-aria-label="toggleTheme">
+                            <i class="fas fa-moon theme-icon moon" aria-hidden="true"></i>
+                            <i class="fas fa-sun theme-icon sun" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -81,54 +109,60 @@
     </nav>
 
 
-    <section id="inicio" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+    <main id="main-content">
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="hero-title">
         <div class="max-w-4xl mx-auto text-center fade-in">
             <div class="mb-8">
                 <div
                     class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 shadow-2xl pulse-slow">
                     <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
-                        <img src="assets/images/IMG_20240825_195140.jpg" alt="Foto de perfil"
+                        <img src="assets/images/IMG_20240825_195140.jpg" alt="Foto de perfil de Javier Mesonero Moro" data-i18n-alt="profileAlt"
                             class="w-full h-full rounded-full object-cover hover:scale-105 transition-transform duration-300" />
                     </div>
                 </div>
             </div>
-            <h1 class="hero-title text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 id="hero-title" class="hero-title text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                 Javier Mesonero Moro
             </h1>
             <div class="flex flex-wrap justify-center gap-4 mb-8">
                 <div class="tech-badge text-white px-6 py-3 rounded-full text-sm font-medium">
-                    <i class="fas fa-code mr-2"></i>Desarrollador Multiplataforma
+                    <i class="fas fa-code mr-2" aria-hidden="true"></i><span data-i18n="roleDeveloper">Desarrollador Multiplataforma</span>
                 </div>
                 <div class="tech-badge text-white px-6 py-3 rounded-full text-sm font-medium">
-                    <i class="fas fa-code mr-2"></i>Futuro Administrador en Sistemas Informaticos en Redes
+                    <i class="fas fa-code mr-2" aria-hidden="true"></i><span data-i18n="roleIt">Futuro Administrador en Sistemas Informaticos en Redes</span>
                 </div>
             </div>
-            <p class="hero-subtitle text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Desarrollador enfocado en el área de sistemas y administración IT, con experiencia en
-                <span class="gradient-text font-semibold">Java, Python, APIs</span>
-                <span class="typing-cursor"></span>
+            <p class="hero-subtitle text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed" aria-live="off">
+                <span id="hero-rotating-text" data-i18n="heroLine1">Desarrollador de 22 años especializado en soluciones multiplataforma, con experiencia en diseño de APIs, arquitectura de sistemas y gestión de bases de datos.</span>
+                <span class="typing-cursor" aria-hidden="true"></span>
             </p>
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            <figure class="motivational-quote max-w-2xl mx-auto mb-10">
+                <i class="fas fa-quote-left text-blue-300" aria-hidden="true"></i>
+                <blockquote id="motivational-quote-text" class="text-lg md:text-xl text-white/90 italic mt-3">
+                    <span id="motivational-quote" data-i18n="motivationalQuote1">Cada paso que das hoy construye el camino que recorrerás mañana.</span>
+                </blockquote>
+            </figure>
+            <div class="scroll-indicator" aria-hidden="true">
+                <i class="fas fa-chevron-down text-white text-2xl" aria-hidden="true"></i>
             </div>
         </div>
     </section>
 
-    <section id="sobre-mi" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="sobre-mi" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="about-heading">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">Sobre mí</h2>
+                <h2 id="about-heading" class="section-title text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="aboutTitle">Sobre mí</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
             </div>
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="slide-in-left">
                     <div class="glassmorphism rounded-2xl card-padding p-8 card-hover">
                         <h3 class="text-2xl font-bold text-white mb-6 flex items-center"><i
-                                class="fas fa-user-circle mr-3 text-blue-400"></i>Mi Historia</h3>
+                                class="fas fa-user-circle mr-3 text-gray-300" aria-hidden="true"></i><span data-i18n="storyTitle">Mi Historia</span></h3>
                         <div class="space-y-4 text-gray-300 leading-relaxed">
-                            <p>Desarrollador de <span class="text-blue-400 font-semibold">22 años</span> con experiencia en desarrollo multiplataforma, con enfoque en <span class="text-purple-400 font-semibold">sistemas</span>, APIs y bases de datos. Actualmente estudiando <span class="text-green-400 font-semibold">ASIR</span>.</p>
-                            <p>Mi objetivo es crecer en un entorno tecnológico dinámico donde pueda aportar soluciones innovadoras mientras continúo aprendiendo y desarrollando nuevas habilidades.</p>
-                            <p>Me caracterizo por tener una <span class="text-pink-400 font-semibold">mentalidad analítica y resolutiva</span>, orientada a resultados y a la mejora continua.</p>
+                            <p data-i18n="storyParagraph1">Desarrollador de 22 años con experiencia en desarrollo multiplataforma, con enfoque en sistemas, APIs y bases de datos. Actualmente estudiando ASIR.</p>
+                            <p data-i18n="storyParagraph2">Mi objetivo es crecer en un entorno tecnológico dinámico donde pueda aportar soluciones innovadoras mientras continúo aprendiendo y desarrollando nuevas habilidades.</p>
+                            <p data-i18n="storyParagraph3">Me caracterizo por tener una mentalidad analítica y resolutiva, orientada a resultados y a la mejora continua.</p>
                         </div>
                     </div>
                 </div>
@@ -136,97 +170,179 @@
                     <div class="space-y-6">
                         <div class="glassmorphism rounded-2xl card-padding p-6 card-hover">
                             <h4 class="text-xl font-bold text-white mb-4 flex items-center"><i
-                                    class="fas fa-info-circle mr-3 text-blue-400"></i>Datos Personales</h4>
+                                    class="fas fa-info-circle mr-3 text-blue-400" aria-hidden="true"></i><span data-i18n="personalData">Datos Personales</span></h4>
                             <div class="space-y-3 text-gray-300">
                                 <div class="flex items-center"><i
-                                        class="fas fa-birthday-cake mr-3 text-pink-400 w-5"></i><span>22 de Mayo,
-                                        2004</span></div>
+                                        class="fas fa-birthday-cake mr-3 text-pink-400 w-5" aria-hidden="true"></i><span data-i18n="birthday">22 de mayo de 2004</span></div>
                                 <div class="flex items-center"><i
-                                        class="fas fa-envelope mr-3 text-blue-400 w-5"></i><span>jmesoneromoro@gmail.com</span>
+                                        class="fas fa-envelope mr-3 text-blue-400 w-5" aria-hidden="true"></i><span>jmesoneromoro@gmail.com</span>
                                 </div>
                             </div>
                         </div>
                         <div class="glassmorphism rounded-2xl card-padding p-6 card-hover">
                             <h4 class="text-xl font-bold text-white mb-4 flex items-center"><i
-                                    class="fas fa-code mr-3 text-purple-400"></i>Tecnologías</h4>
+                                    class="fas fa-code mr-3 text-purple-400" aria-hidden="true"></i><span data-i18n="technologies">Tecnologías</span></h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Java</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Python</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">HTML/CSS</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">SQL</span>
-                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Spring Boot</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Hibernate</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">APIs REST</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">CISCO Packet Tracer</span>
                                 <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">VirtualBox</span>
                             </div>
                         </div>
-                        <div class="glassmorphism rounded-2xl card-padding p-6 card-hover">
-                            <h4 class="text-xl font-bold text-white mb-4 flex items-center"><i
-                                    class="fas fa-briefcase mr-3 text-yellow-400"></i>Experiencia</h4>
-                            <div class="text-gray-300">
-                                <div class="flex items-start">
-                                    <div class="flex-shrink-0">
-                                        <div class="w-3 h-3 bg-blue-400 rounded-full mt-1.5"></div>
-                                    </div>
-                                    <div class="ml-4">
-                                        <h5 class="font-semibold text-white">Becario en VIEWNEXT</h5>
-                                        <p class="text-sm text-gray-400">Formación en MuleSoft y IIB</p>
-                                        <p class="text-sm text-gray-400">380 horas realizadas</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="estadisticas" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="herramientas" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="tools-heading">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 id="tools-heading" class="section-title text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="toolsTitle">Mis herramientas favoritas</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto" data-i18n="toolsSubtitle">Las herramientas que uso para desarrollar, administrar sistemas y aprender.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-6"></div>
+            </div>
+            <div class="tool-grid grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
+                <article class="tool-card glassmorphism rounded-2xl p-6 md:p-8 text-center fade-in">
+                    <div class="tool-icon-wrap tool-icon-vscode"><i class="fas fa-code tool-icon" aria-hidden="true"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mt-5">Visual Studio Code</h3>
+                    <p class="text-sm text-gray-300 mt-2" data-i18n="toolVscode">Desarrollo y edición de código</p>
+                </article>
+                <article class="tool-card glassmorphism rounded-2xl p-6 md:p-8 text-center fade-in">
+                    <div class="tool-icon-wrap tool-icon-workbench"><i class="fas fa-database tool-icon" aria-hidden="true"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mt-5">MySQL Workbench</h3>
+                    <p class="text-sm text-gray-300 mt-2" data-i18n="toolWorkbench">Diseño y gestión de bases de datos</p>
+                </article>
+                <article class="tool-card glassmorphism rounded-2xl p-6 md:p-8 text-center fade-in">
+                    <div class="tool-icon-wrap tool-icon-kali"><i class="fab fa-linux tool-icon" aria-hidden="true"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mt-5">Kali Linux</h3>
+                    <p class="text-sm text-gray-300 mt-2" data-i18n="toolKali">Sistemas y ciberseguridad</p>
+                </article>
+                <article class="tool-card glassmorphism rounded-2xl p-6 md:p-8 text-center fade-in">
+                    <div class="tool-icon-wrap tool-icon-docker"><i class="fab fa-docker tool-icon" aria-hidden="true"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mt-5">Docker</h3>
+                    <p class="text-sm text-gray-300 mt-2" data-i18n="toolDocker">Contenedores y despliegue</p>
+                </article>
+                <article class="tool-card glassmorphism rounded-2xl p-6 md:p-8 text-center fade-in">
+                    <div class="tool-icon-wrap tool-icon-git"><i class="fab fa-git-alt tool-icon" aria-hidden="true"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mt-5">Git</h3>
+                    <p class="text-sm text-gray-300 mt-2" data-i18n="toolGit">Control de versiones</p>
+                </article>
+                <article class="tool-card glassmorphism rounded-2xl p-6 md:p-8 text-center fade-in">
+                    <div class="tool-icon-wrap tool-icon-virtualbox"><i class="fas fa-cubes tool-icon" aria-hidden="true"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mt-5">VirtualBox</h3>
+                    <p class="text-sm text-gray-300 mt-2" data-i18n="toolVirtualBox">Virtualización de sistemas</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="trayectoria" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="timeline-heading">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 id="timeline-heading" class="section-title text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="timelineTitle">Mi trayectoria</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto" data-i18n="timelineSubtitle">Formación académica y experiencia profesional</p>
+            </div>
+            <ol class="career-timeline">
+                <li class="career-timeline-item">
+                    <span class="career-timeline-marker career-timeline-marker--education" aria-hidden="true">
+                        <i class="fas fa-graduation-cap"></i>
+                    </span>
+                    <article class="career-timeline-card glassmorphism rounded-2xl p-6 md:p-8">
+                        <div class="career-timeline-meta">
+                            <span class="career-timeline-type career-timeline-type--education">
+                                <i class="fas fa-book-open" aria-hidden="true"></i>
+                                <span data-i18n="timelineEducationType">Formación</span>
+                            </span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3" data-i18n="timelineDamTitle">Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="timelineDamDetail">Estudios de Desarrollo de Aplicaciones Multiplataforma.</p>
+                    </article>
+                </li>
+                <li class="career-timeline-item">
+                    <span class="career-timeline-marker career-timeline-marker--experience" aria-hidden="true">
+                        <i class="fas fa-briefcase"></i>
+                    </span>
+                    <article class="career-timeline-card glassmorphism rounded-2xl p-6 md:p-8">
+                        <div class="career-timeline-meta">
+                            <span class="career-timeline-type career-timeline-type--experience">
+                                <i class="fas fa-building" aria-hidden="true"></i>
+                                <span data-i18n="timelineExperienceType">Experiencia profesional</span>
+                            </span>
+                            <span class="career-timeline-date" data-i18n="hoursCompleted">380 horas realizadas</span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3" data-i18n="internship">Becario en VIEWNEXT</h3>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="training">Formación en MuleSoft e IIB</p>
+                    </article>
+                </li>
+                <li class="career-timeline-item">
+                    <span class="career-timeline-marker career-timeline-marker--education" aria-hidden="true">
+                        <i class="fas fa-graduation-cap"></i>
+                    </span>
+                    <article class="career-timeline-card glassmorphism rounded-2xl p-6 md:p-8">
+                        <div class="career-timeline-meta">
+                            <span class="career-timeline-type career-timeline-type--education">
+                                <i class="fas fa-book-open" aria-hidden="true"></i>
+                                <span data-i18n="timelineEducationType">Formación</span>
+                            </span>
+                            <span class="career-timeline-date" data-i18n="timelineCurrent">En curso</span>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3" data-i18n="timelineAsirTitle">Administración de Sistemas Informáticos en Red (ASIR)</h3>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="timelineAsirDetail">Actualmente cursando ASIR.</p>
+                    </article>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="estadisticas" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="stats-heading">
         <div class="max-w-6xl mx-auto fade-in">
             <div class="glassmorphism rounded-3xl p-8 md:p-12">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Números que Hablan</h2>
-                    <p class="text-gray-300">Mi experiencia reflejada en datos</p>
+                    <h2 id="stats-heading" class="text-3xl md:text-4xl font-bold text-white mb-4" data-i18n="statsTitle">Números que hablan</h2>
+                    <p class="text-gray-300" data-i18n="statsSubtitle">Mi experiencia reflejada en datos</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div class="text-center stats-card">
                         <div class="relative mb-4">
                             <div
                                 class="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center shadow-lg">
-                                <i class="fas fa-project-diagram text-white text-2xl"></i></div>
+                                <i class="fas fa-project-diagram text-white text-2xl" aria-hidden="true"></i></div>
                         </div>
                         <div class="counter text-4xl md:text-5xl font-bold text-white mb-2" data-target="3">3</div>
-                        <p class="text-gray-300 text-sm md:text-base">Proyectos Completados</p>
+                        <p class="text-gray-300 text-sm md:text-base" data-i18n="completedProjects">Proyectos completados</p>
                     </div>
                     <div class="text-center stats-card">
                         <div class="relative mb-4">
                             <div
                                 class="w-16 h-16 mx-auto bg-gradient-to-r from-purple-500 to-pink-400 rounded-2xl flex items-center justify-center shadow-lg">
-                                <i class="fas fa-code text-white text-2xl"></i></div>
+                                <i class="fas fa-code text-white text-2xl" aria-hidden="true"></i></div>
                         </div>
                         <div class="counter text-4xl md:text-5xl font-bold text-white mb-2" data-target="10">10</div>
-                        <p class="text-gray-300 text-sm md:text-base">Tecnologías Dominadas</p>
+                        <p class="text-gray-300 text-sm md:text-base" data-i18n="technologiesMastered">Tecnologías dominadas</p>
                     </div>
                     <div class="text-center stats-card">
                         <div class="relative mb-4">
                             <div
                                 class="w-16 h-16 mx-auto bg-gradient-to-r from-green-500 to-teal-400 rounded-2xl flex items-center justify-center shadow-lg">
-                                <i class="fas fa-calendar-alt text-white text-2xl"></i></div>
+                                <i class="fas fa-calendar-alt text-white text-2xl" aria-hidden="true"></i></div>
                         </div>
                         <div class="counter text-4xl md:text-5xl font-bold text-white mb-2" data-target="1">1</div>
-                        <p class="text-gray-300 text-sm md:text-base">Años de Experiencia</p>
+                        <p class="text-gray-300 text-sm md:text-base" data-i18n="yearsExperience">Años de experiencia</p>
                     </div>
                     <div class="text-center stats-card">
                         <div class="relative mb-4">
                             <div
                                 class="w-16 h-16 mx-auto bg-gradient-to-r from-orange-500 to-red-400 rounded-2xl flex items-center justify-center shadow-lg">
-                                <i class="fas fa-clock text-white text-2xl"></i></div>
+                                <i class="fas fa-clock text-white text-2xl" aria-hidden="true"></i></div>
                         </div>
                         <div class="counter text-4xl md:text-5xl font-bold text-white mb-2" data-target="380">380</div>
-                        <p class="text-gray-300 text-sm md:text-base">Horas de Formación</p>
+                        <p class="text-gray-300 text-sm md:text-base" data-i18n="trainingHours">Horas de formación</p>
                     </div>
                 </div>
             </div>
@@ -234,11 +350,11 @@
     </section>
 
 
-    <section id="proyectos" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="proyectos" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="projects-heading">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 fade-in">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">Mis Proyectos</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Una selección de mis trabajos más destacados</p>
+                <h2 id="projects-heading" class="section-title text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="projectsTitle">Mis proyectos</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto" data-i18n="projectsSubtitle">Una selección de mis trabajos más destacados</p>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-6"></div>
             </div>
             <div class="relative fade-in">
@@ -252,26 +368,26 @@
                                         <div
                                             class="image-gallery relative bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
                                             <div id="asana-gallery" class="gallery-container">
-                                                <img src="assets/images/login.jpg" alt="AsanaYoga Login"
+                                                <img src="assets/images/login.jpg" alt="Pantalla de inicio de sesión de AsanaYoga" data-i18n-alt="altYogaLogin"
                                                     class="gallery-image mobile-screenshot" />
-                                                <img src="assets/images/asana.jpg" alt="AsanaYoga Asanas"
+                                                <img src="assets/images/asana.jpg" alt="Lista de posturas de yoga en AsanaYoga" data-i18n-alt="altYogaPoses"
                                                     class="gallery-image mobile-screenshot" />
-                                                <img src="assets/images/rutina.jpg" alt="AsanaYoga Rutinas"
+                                                <img src="assets/images/rutina.jpg" alt="Rutinas de yoga en AsanaYoga" data-i18n-alt="altYogaRoutines"
                                                     class="gallery-image mobile-screenshot" />
                                             </div>
-                                            <button onclick="previousImage('asana-gallery')"
+                                            <button type="button" aria-label="Imagen anterior de AsanaYoga" data-i18n-aria-label="previousYogaImage" onclick="previousImage('asana-gallery')"
                                                 class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all"><i
-                                                    class="fas fa-chevron-left"></i></button>
-                                            <button onclick="nextImage('asana-gallery')"
+                                                    class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                                            <button type="button" aria-label="Imagen siguiente de AsanaYoga" data-i18n-aria-label="nextYogaImage" onclick="nextImage('asana-gallery')"
                                                 class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all"><i
-                                                    class="fas fa-chevron-right"></i></button>
+                                                    class="fas fa-chevron-right" aria-hidden="true"></i></button>
                                             <div
                                                 class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                                                <button onclick="showImage('asana-gallery', 0)"
+                                                <button type="button" aria-label="Mostrar imagen 1 de AsanaYoga" data-i18n-aria-label="showYogaImage1" onclick="showImage('asana-gallery', 0)"
                                                     class="gallery-dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-all"></button>
-                                                <button onclick="showImage('asana-gallery', 1)"
+                                                <button type="button" aria-label="Mostrar imagen 2 de AsanaYoga" data-i18n-aria-label="showYogaImage2" onclick="showImage('asana-gallery', 1)"
                                                     class="gallery-dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-all"></button>
-                                                <button onclick="showImage('asana-gallery', 2)"
+                                                <button type="button" aria-label="Mostrar imagen 3 de AsanaYoga" data-i18n-aria-label="showYogaImage3" onclick="showImage('asana-gallery', 2)"
                                                     class="gallery-dot w-2 h-2 bg-white rounded-full opacity-50 hover:opacity-100 transition-all"></button>
                                             </div>
                                         </div>
@@ -280,14 +396,12 @@
                                         <div class="flex items-center mb-4">
                                             <div
                                                 class="w-20 h-30 bg-gradient-to-r from-teal-400 to-blue-500 rounded-xl flex items-center justify-center mr-4">
-                                                <img src="assets/images/asanayoga.jpeg"
-                                                    class="fas fa-spa text-white text-xl">
+                                                <img src="assets/images/asanayoga.jpeg" alt="Logotipo de AsanaYoga" data-i18n-alt="altYogaLogo"
+                                                    class="h-12 w-12 rounded-lg object-cover">
                                             </div>
                                             <h3 class="text-3xl font-bold text-white">AsanaYoga</h3>
                                         </div>
-                                        <p class="text-white mb-6 leading-relaxed">Aplicación multiplataforma en Java
-                                            para la gestión de clases de yoga. Incluye gestión de usuarios, horarios y
-                                            seguimiento de progreso.</p>
+                                        <p class="text-white mb-6 leading-relaxed" data-i18n="yogaDescription">Aplicación multiplataforma en Java para la gestión de clases de yoga. Incluye gestión de usuarios, horarios y seguimiento de progreso.</p>
                                         <div class="flex flex-wrap gap-2 mb-6">
                                             <span
                                                 class="tech-badge text-white px-3 py-1 rounded-full text-sm">Java</span>
@@ -299,7 +413,7 @@
                                         <div class="flex gap-4">
                                             <a href="https://github.com/JaviSilver/AsanaYoga.git"
                                                 class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all duration-300 transform hover:scale-105">
-                                                <i class="fab fa-github"></i>Ver Código
+                                                <i class="fab fa-github" aria-hidden="true"></i><span data-i18n="viewCode">Ver código</span>
                                             </a>
                                         </div>
                                     </div>
@@ -316,29 +430,29 @@
                                         <div
                                             class="image-gallery relative bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
                                             <div id="website-gallery" class="gallery-container relative">
-                                                <img src="assets/images/web1.png" alt="Imagen 1 web"
+                                                <img src="assets/images/web1.png" alt="Página de inicio del portfolio" data-i18n-alt="altPortfolioHome"
                                                     class="gallery-image w-full h-auto object-cover" />
-                                                <img src="assets/images/web2.png" alt="Imagen 2 web"
+                                                <img src="assets/images/web2.png" alt="Sección de proyectos del portfolio" data-i18n-alt="altPortfolioProjects"
                                                     class="gallery-image w-full h-auto object-cover hidden" />
-                                                <img src="assets/images/web3.png" alt="Imagen 3 web"
+                                                <img src="assets/images/web3.png" alt="Sección de contacto del portfolio" data-i18n-alt="altPortfolioContact"
                                                     class="gallery-image w-full h-auto object-cover hidden" />
 
                                             </div>
-                                            <button onclick="previousImage('website-gallery')"
+                                            <button type="button" aria-label="Imagen anterior del portfolio" data-i18n-aria-label="previousPortfolioImage" onclick="previousImage('website-gallery')"
                                                 class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all">
-                                                <i class="fas fa-chevron-left"></i>
+                                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
                                             </button>
-                                            <button onclick="nextImage('website-gallery')"
+                                            <button type="button" aria-label="Imagen siguiente del portfolio" data-i18n-aria-label="nextPortfolioImage" onclick="nextImage('website-gallery')"
                                                 class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all">
-                                                <i class="fas fa-chevron-right"></i>
+                                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
                                             </button>
                                             <div
                                                 class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                                                <button onclick="showImage('website-gallery', 0)"
+                                                <button type="button" aria-label="Mostrar imagen 1 del portfolio" data-i18n-aria-label="showPortfolioImage1" onclick="showImage('website-gallery', 0)"
                                                     class="gallery-dot w-3 h-3 bg-white rounded-full opacity-100 hover:opacity-100 transition-all"></button>
-                                                <button onclick="showImage('website-gallery', 1)"
+                                                <button type="button" aria-label="Mostrar imagen 2 del portfolio" data-i18n-aria-label="showPortfolioImage2" onclick="showImage('website-gallery', 1)"
                                                     class="gallery-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-all"></button>
-                                                <button onclick="showImage('website-gallery', 2)"
+                                                <button type="button" aria-label="Mostrar imagen 3 del portfolio" data-i18n-aria-label="showPortfolioImage3" onclick="showImage('website-gallery', 2)"
                                                     class="gallery-dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100 transition-all"></button>
                                             </div>
                                         </div>
@@ -347,13 +461,11 @@
                                         <div class="flex items-center mb-4">
                                             <div
                                                 class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
-                                                <i class="fas fa-globe text-white text-xl"></i>
+                                                <i class="fas fa-globe text-white text-xl" aria-hidden="true"></i>
                                             </div>
-                                            <h3 class="text-3xl font-bold text-white">Mi Portfolio Web</h3>
+                                            <h3 class="text-3xl font-bold text-white" data-i18n="projectPortfolioTitle">Mi Portfolio Web</h3>
                                         </div>
-                                        <p class="text-white mb-6 leading-relaxed">Sitio web personal desarrollado con
-                                            tecnologías modernas. Presenta mis proyectos, habilidades y experiencia con
-                                            un diseño elegante y animaciones interactivas.</p>
+                                        <p class="text-white mb-6 leading-relaxed" data-i18n="portfolioDescription">Sitio web personal desarrollado con tecnologías modernas. Presenta mis proyectos, habilidades y experiencia con un diseño elegante y animaciones interactivas.</p>
                                         <div class="flex flex-wrap gap-2 mb-6">
                                             <span
                                                 class="tech-badge text-white px-3 py-1 rounded-full text-sm">HTML5</span>
@@ -367,11 +479,11 @@
                                         <div class="flex gap-4">
                                             <a href="https://javiermesoneromoro.vercel.app/"
                                                 class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105">
-                                                <i class="fas fa-external-link-alt"></i>Ver Sitio
+                                                <i class="fas fa-external-link-alt" aria-hidden="true"></i><span data-i18n="viewSite">Ver sitio</span>
                                             </a>
                                             <a href="https://github.com/JaviSilver/pagina-web"
                                                 class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all duration-300 transform hover:scale-105">
-                                                <i class="fab fa-github"></i>Ver Código
+                                                <i class="fab fa-github" aria-hidden="true"></i><span data-i18n="viewCode">Ver código</span>
                                             </a>
                                         </div>
                                     </div>
@@ -386,8 +498,8 @@
                                     <div class="relative">
                                         <div class="bg-gray-800 rounded-xl flex items-center justify-center h-64">
                                             <div class="text-center">
-                                                <i class="fas fa-plus text-6xl text-gray-600 mb-4"></i>
-                                                <p class="text-gray-400">Próximamente capturas</p>
+                                                <i class="fas fa-plus text-6xl text-gray-600 mb-4" aria-hidden="true"></i>
+                                                <p class="text-gray-400" data-i18n="screenshotsSoon">Capturas próximamente</p>
                                             </div>
                                         </div>
                                     </div>
@@ -395,20 +507,18 @@
                                         <div class="flex items-center mb-4">
                                             <div
                                                 class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                                                <i class="fas fa-plus text-white text-xl"></i>
+                                                <i class="fas fa-plus text-white text-xl" aria-hidden="true"></i>
                                             </div>
-                                            <h3 class="text-3xl font-bold text-white">Próximo Proyecto</h3>
+                                            <h3 class="text-3xl font-bold text-white" data-i18n="nextProject">Próximo proyecto</h3>
                                         </div>
-                                        <p class="text-gray-300 mb-6 leading-relaxed">Actualmente trabajando en nuevos
-                                            proyectos que combinan desarrollo. ¡Pronto más novedades!</p>
+                                        <p class="text-gray-300 mb-6 leading-relaxed" data-i18n="nextProjectDescription">Actualmente trabajando en nuevos proyectos que combinan desarrollo. ¡Pronto más novedades!</p>
                                         <div class="flex flex-wrap gap-2 mb-6">
-                                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">En
-                                                desarrollo</span>
+                                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm" data-i18n="inDevelopment">En desarrollo</span>
                                         </div>
                                         <div class="flex">
                                             <div
                                                 class="px-6 py-3 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed">
-                                                <i class="fas fa-clock mr-2"></i>Próximamente
+                                                <i class="fas fa-clock mr-2" aria-hidden="true"></i><span data-i18n="comingSoon">Próximamente</span>
                                             </div>
                                         </div>
                                     </div>
@@ -417,20 +527,20 @@
                         </div>
                     </div>
                 </div>
-                <button onclick="previousProject()"
+                <button type="button" aria-label="Proyecto anterior" data-i18n-aria-label="previousProject" onclick="previousProject()"
                     class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-blue-500/20 backdrop-blur text-white p-3 rounded-full hover:bg-blue-500/40 transition-all shadow-lg">
-                    <i class="fas fa-chevron-left text-xl"></i>
+                    <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
                 </button>
-                <button onclick="nextProject()"
+                <button type="button" aria-label="Proyecto siguiente" data-i18n-aria-label="nextProjectLabel" onclick="nextProject()"
                     class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-blue-500/20 backdrop-blur text-white p-3 rounded-full hover:bg-blue-500/40 transition-all shadow-lg">
-                    <i class="fas fa-chevron-right text-xl"></i>
+                    <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
                 </button>
                 <div class="flex justify-center mt-8 space-x-3">
-                    <button onclick="goToProject(0)"
+                    <button type="button" aria-label="Mostrar proyecto 1" data-i18n-aria-label="showProject1" onclick="goToProject(0)"
                         class="carousel-indicator w-3 h-3 bg-blue-400 rounded-full transition-all hover:scale-110"></button>
-                    <button onclick="goToProject(1)"
+                    <button type="button" aria-label="Mostrar proyecto 2" data-i18n-aria-label="showProject2" onclick="goToProject(1)"
                         class="carousel-indicator w-3 h-3 bg-gray-400 rounded-full transition-all hover:scale-110"></button>
-                    <button onclick="goToProject(2)"
+                    <button type="button" aria-label="Mostrar proyecto 3" data-i18n-aria-label="showProject3" onclick="goToProject(2)"
                         class="carousel-indicator w-3 h-3 bg-gray-400 rounded-full transition-all hover:scale-110"></button>
                 </div>
             </div>
@@ -438,135 +548,125 @@
     </section>
 
 
-    <section id="contacto" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contacto" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10" aria-labelledby="contact-heading">
         <div class="max-w-4xl mx-auto text-center">
             <div class="fade-in">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">Conectemos</h2>
-                <p class="text-xl text-gray-300 mb-12">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+                <h2 id="contact-heading" class="section-title text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="contactTitle">Conectemos</h2>
+                <p class="text-xl text-gray-300 mb-12" data-i18n="contactSubtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
                 <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-12"></div>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 max-w-4xl mx-auto">
-                    <a href="#" onclick="openCVModal()"
+                    <button type="button" onclick="openCVModal()" aria-label="Abrir currículum" data-i18n-aria-label="openCV"
                         class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group"><i
-                            class="fas fa-file-alt text-2xl text-gray-300 group-hover:text-green-400 mb-2"></i><span
-                            class="text-xs text-white group-hover:text-gray-300">CV</span></a>
-                    <a onclick="openContactModal()"
+                            class="fas fa-file-alt text-2xl text-gray-300 group-hover:text-green-400 mb-2" aria-hidden="true"></i><span
+                            class="text-xs text-white group-hover:text-gray-300">CV</span></button>
+                    <button type="button" onclick="openContactModal()" aria-label="Abrir formulario de contacto" data-i18n-aria-label="openContact"
                         class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group cursor-pointer"><i
-                            class="fas fa-envelope text-2xl text-gray-300 group-hover:text-blue-400 mb-2"></i><span
-                            class="text-xs text-white group-hover:text-gray-300">Email</span></a>
+                            class="fas fa-envelope text-2xl text-gray-300 group-hover:text-blue-400 mb-2" aria-hidden="true"></i><span
+                            class="text-xs text-white group-hover:text-gray-300">Email</span></button>
                      <a href="https://github.com/javiermesmor"
                         class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group"><i
-                            class="fab fa-github text-2xl text-gray-300 group-hover:text-white mb-2"></i><span
+                            class="fab fa-github text-2xl text-gray-300 group-hover:text-white mb-2" aria-hidden="true"></i><span
                             class="text-xs text-white group-hover:text-gray-300">GitHub</span></a>
                     <a href="https://linkedin.com/in/javier-mesonero-moro"
                         class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group"><i
-                            class="fab fa-linkedin text-2xl text-gray-300 group-hover:text-blue-400 mb-2"></i><span
+                            class="fab fa-linkedin text-2xl text-gray-300 group-hover:text-blue-400 mb-2" aria-hidden="true"></i><span
                             class="text-xs text-white group-hover:text-gray-300">LinkedIn</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="cv-modal" class="modal-overlay">
+    <div id="cv-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title" aria-hidden="true">
         <div class="modal-content">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold text-white"><i class="fas fa-file-alt mr-3 text-blue-400"></i>Curriculum
-                    Vitae</h3>
-                <button id="close-modal" class="text-gray-400 hover:text-white text-2xl transition-colors"><i
-                        class="fas fa-times"></i></button>
+                <h3 id="cv-modal-title" class="text-2xl font-bold text-white"><i class="fas fa-file-alt mr-3 text-blue-400" aria-hidden="true"></i><span data-i18n="cvTitle">Currículum vitae</span></h3>
+                <button id="close-modal" type="button" aria-label="Cerrar ventana del currículum" data-i18n-aria-label="closeCV" class="text-gray-400 hover:text-white text-2xl transition-colors"><i
+                        class="fas fa-times" aria-hidden="true"></i></button>
             </div>
-            <div id="cv-mobile-message" class="hidden text-red-400 text-sm mb-4">
-                El visor de PDF puede no funcionar en tu dispositivo móvil. Por favor, usa los botones para descargar o
-                abrir en una nueva pestaña.
+            <div id="cv-mobile-message" class="hidden text-red-400 text-sm mb-4" data-i18n="pdfMobileMessage">
+                El visor de PDF puede no funcionar en tu dispositivo móvil. Por favor, usa los botones para descargar o abrir en una nueva pestaña.
             </div>
-            <div class="mb-6"><embed id="pdf-viewer" class="pdf-viewer" type="application/pdf"></div>
+            <div class="mb-6"><embed id="pdf-viewer" class="pdf-viewer" type="application/pdf" title="Currículum de Javier Mesonero Moro" data-i18n-title="cvTitle"></div>
             <div class="flex gap-4 justify-center">
                 <button id="download-cv-btn" onclick="downloadCV()"
                     class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"><i
-                        class="fas fa-download"></i>Descargar CV</button>
+                    class="fas fa-download" aria-hidden="true"></i><span data-i18n="downloadCV">Descargar CV</span></button>
                 <button id="open-new-tab-btn" onclick="openCVInNewTab()"
                     class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"><i
-                        class="fas fa-external-link-alt"></i>Abrir en nueva pestaña</button>
+                    class="fas fa-external-link-alt" aria-hidden="true"></i><span data-i18n="openNewTab">Abrir en nueva pestaña</span></button>
             </div>
         </div>
     </div>
 
-    <div id="contact-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeContactModal()"></div>
+    <div id="contact-modal" class="fixed inset-0 z-[10000] hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeContactModal()" aria-hidden="true"></div>
         <div class="relative glassmorphism rounded-2xl p-8 w-full max-w-lg transform transition-all duration-300 scale-95 opacity-0"
             id="modal-content">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold text-white flex items-center"><i
-                        class="fas fa-envelope mr-3 text-blue-400"></i>Contactar</h3>
-                <button onclick="closeContactModal()"
+                <h3 id="contact-modal-title" class="text-2xl font-bold text-white flex items-center"><i
+                        class="fas fa-envelope mr-3 text-blue-400" aria-hidden="true"></i><span data-i18n="contactFormTitle">Contactar</span></h3>
+                <button type="button" aria-label="Cerrar formulario de contacto" data-i18n-aria-label="closeContact" onclick="closeContactModal()"
                     class="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"><i
-                        class="fas fa-times text-xl"></i></button>
+                        class="fas fa-times text-xl" aria-hidden="true"></i></button>
             </div>
             <form id="contact-form" class="space-y-4">
                 <div>
-                    <label for="contact-name" class="block text-sm font-medium text-gray-300 mb-2">Nombre *</label>
+                    <label for="contact-name" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="nameLabel">Nombre *</label>
                     <input type="text" id="contact-name" name="name" required
                         class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
-                        placeholder="Tu nombre completo">
+                        placeholder="Tu nombre completo" data-i18n-placeholder="namePlaceholder">
                 </div>
                 <div>
-                    <label for="contact-email" class="block text-sm font-medium text-gray-300 mb-2">Correo electrónico
-                        *</label>
+                    <label for="contact-email" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="emailLabel">Correo electrónico *</label>
                     <input type="email" id="contact-email" name="email" required
                         class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
                         placeholder="tu@email.com">
                 </div>
                 <div>
-                    <label for="contact-subject" class="block text-sm font-medium text-gray-300 mb-2">Asunto *</label>
+                    <label for="contact-subject" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="subjectLabel">Asunto *</label>
                     <input type="text" id="contact-subject" name="subject" required
                         class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
-                        placeholder="¿En qué puedo ayudarte?">
+                        placeholder="¿En qué puedo ayudarte?" data-i18n-placeholder="subjectPlaceholder">
                 </div>
                 <div>
-                    <label for="contact-message" class="block text-sm font-medium text-gray-300 mb-2">Mensaje *</label>
+                    <label for="contact-message" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="messageLabel">Mensaje *</label>
                     <textarea id="contact-message" name="message" rows="4" required
                         class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none"
-                        placeholder="Escribe tu mensaje aquí..."></textarea>
+                        placeholder="Escribe tu mensaje aquí..." data-i18n-placeholder="messagePlaceholder"></textarea>
                 </div>
                 <div class="flex gap-4 pt-4">
                     <button type="submit" id="submit-btn"
                         class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400"><i
-                            class="fas fa-paper-plane mr-2"></i>Enviar</button>
+                            class="fas fa-paper-plane mr-2" aria-hidden="true"></i><span data-i18n="send">Enviar</span></button>
                     <button type="button" onclick="closeContactModal()"
                         class="flex-1 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400"><i
-                            class="fas fa-times mr-2"></i>Cancelar</button>
+                            class="fas fa-times mr-2" aria-hidden="true"></i><span data-i18n="cancel">Cancelar</span></button>
                 </div>
             </form>
         </div>
     </div>
 
+    </main>
+
     <footer class="bg-gray-900/50 backdrop-blur-sm text-white py-12 px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="max-w-6xl mx-auto text-center">
             <div class="mb-8">
                 <div class="text-2xl font-bold gradient-text">Javier Mesonero Moro</div>
-                <p class="text-gray-400 mt-2">Desarrollador Multiplataforma</p>
+                <p class="text-gray-400 mt-2" data-i18n="roleDeveloper">Desarrollador Multiplataforma</p>
             </div>
             <div class="border-t border-gray-700 pt-8">
-                <p class="text-gray-400">© 2025 Javier Mesonero Moro. Desarrollado con ❤️ usando HTML, TailwindCSS y
-                    JavaScript</p>
+                <p class="text-gray-400" data-i18n="copyright">© 2025 Javier Mesonero Moro. Desarrollado con ❤️ usando HTML, TailwindCSS y JavaScript</p>
             </div>
         </div>
     </footer>
 
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Volver al inicio" title="Volver al inicio" data-i18n-aria-label="backToTop" data-i18n-title="backToTop" hidden>
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="js/i18n.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
