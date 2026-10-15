@@ -27,17 +27,5 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 - 🧭 Navegación suave entre secciones.
 - 🎮 Easter egg oculto (código Konami).
 
-## 🧩 Funcionalidades futuras (por implementar)
-
-### 🔁 Mejora de experiencia profesional
-- [ ] Línea de tiempo visual con la formación y experiencia profesional.
-
-### 📱 Redes sociales y presencia personal
-- [ ] Mostrar estadísticas sociales (seguidores, vídeos, estrellas de GitHub) con APIs.
-
-### 🎨 Extras creativos
-- [ ] Sección con “Mis herramientas favoritas” usando iconos animados.
-- [ ] Mostrar una **cita motivadora aleatoria** al cargar la página.
-
 
 
