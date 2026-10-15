@@ -34,7 +34,6 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 
 ### 📱 Redes sociales y presencia personal
 - [ ] Mostrar estadísticas sociales (seguidores, vídeos, estrellas de GitHub) con APIs.
-- [ ] Añadir botón flotante para contacto por **WhatsApp o Telegram**.
 
 ### 🧠 Funcionalidades técnicas útiles
 - [ ] Botón flotante para volver al inicio de la página (scroll to top).
