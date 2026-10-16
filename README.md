@@ -65,6 +65,7 @@ Este proyecto está construido utilizando tecnologías modernas y ligeras para g
 .
 ├── api/
 │   └── enviar-correo.js      # Lógica del servidor para el envío de correos
+├── 404.html                  # Página personalizada para rutas no encontradas
 ├── assets/
 │   ├── images/               # Recursos gráficos e imágenes
 │   └── pdf/                  # Archivo del currículum vitae en PDF
