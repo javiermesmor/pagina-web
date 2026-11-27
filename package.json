@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --watch",
-    "build": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --minify"
+    "dev": "node ./node_modules/tailwindcss/lib/cli.js -i ./css/tailwind-input.css -o ./css/tailwind.css --watch",
+    "build": "node ./node_modules/tailwindcss/lib/cli.js -i ./css/tailwind-input.css -o ./css/tailwind.css --minify"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.19"
