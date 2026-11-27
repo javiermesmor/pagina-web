@@ -1,5 +1,13 @@
 {
   "name": "portfolio-javier-mesonero",
+  "version": "1.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "dev": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --watch",
+    "build": "tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
 }
