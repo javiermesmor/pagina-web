@@ -4,22 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f172a" />
     <meta name="description" content="La página que buscas no está disponible. Vuelve al portfolio de Javier Mesonero Moro." />
     <title>404 - Página no encontrada | Javier Mesonero Moro</title>
 
-    <script>
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.add('light-theme');
-        }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="assets/images/IMG_20240825_195140.jpg" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="shortcut icon" href="assets/images/IMG_20240825_195140.jpg" />
 </head>
 
 <body class="error-page">
@@ -41,7 +34,7 @@
     </header>
 
     <main id="main-content" class="error-main">
-        <section class="error-card" aria-labelledby="error-title">
+        <section class="error-card glassmorphism" aria-labelledby="error-title">
             <div class="error-orbit" aria-hidden="true">
                 <span class="error-orbit-dot"></span>
                 <i class="fas fa-compass"></i>
@@ -62,11 +55,11 @@
                     <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
                 </a>
             </div>
-            <div class="error-terminal" role="status" aria-label="Estado: ruta no encontrada">
+            <div class="error-terminal" aria-label="Estado: ruta no encontrada">
                 <span class="error-terminal-dot" aria-hidden="true"></span>
                 <span class="error-terminal-dot" aria-hidden="true"></span>
                 <span class="error-terminal-dot" aria-hidden="true"></span>
-                <code class="error-terminal-message"><span aria-hidden="true">&gt;</span> ruta_no_encontrada</code>
+                <span class="error-terminal-message"><span aria-hidden="true">&gt;</span> ruta_no_encontrada</span>
             </div>
         </section>
     </main>
